@@ -7,16 +7,32 @@ This is a minimal Java project template using [Gradle](https://gradle.org/) to m
 - [JUnit](https://junit.org/junit5/) dependencies with example test
 - package into [shadow](https://gradleup.com/shadow/) (fat jar) for easy deployment
 
-## 💻 Getting Started
+## Getting Started
 
-### 1. Clone the Repository
+### 1. Install JDK
+
+Choose a JDK distribution via <https://whichjdk.com/>. If unsure, get the Eclipse Temurin OpenJDK build
+from <https://adoptium.net/>.
+There is no need to download the official Oracle distribution unless you have an active support contract.
+If you are reading this you probably don't, so instead choose one of the OpenJDK distributions with more flexible licensing.
+
+I would recommend just downloading the `.tar.gz` archive rather than the installers as this allows easy management of
+multiple JDK versions on the same machine. Just flip environment variables - no symlinks (`javapath`) or install/uninstalling
+things.
+
+Just extract the archive and make sure the `JAVA_HOME` environment variable is pointing to the root of the JDK directory.
+Build tools like Gradle/Maven will automatically pick up and use whichever JDK the `JAVA_HOME` environment variable is pointing
+to.
+Your editor/IDE can be configured to choose whichever version you prefer on a per-project basis.
+
+### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/mulrian/java-gradle-starter.git
 cd java-gradle-starter
 ```
 
-### 2. Rename the Project
+### 3. Rename the Project
 
 Update the `rootProject.name` in [`settings.gradle.kts`](settings.gradle.kts):
 
@@ -28,7 +44,7 @@ You can also rename the folder and update the package structure under `src/main/
 
 ---
 
-## 📥 Importing into Your IDE
+## Importing into Your IDE
 
 Most IDEs will detect the Gradle project automatically:
 
@@ -38,7 +54,7 @@ Most IDEs will detect the Gradle project automatically:
 
 ---
 
-## 🔧 Adding Dependencies
+## Adding Dependencies
 
 Project pages often include coordinates for how to add include them as a dependency. Alternatively go to e.g. <https://mvnrepository.com/> or <https://central.sonatype.com/> to lookup something specific.
 For example Jackson at <https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind>. Select a version and it will give you the snippet to use.
@@ -56,7 +72,7 @@ Alternatively you can just rebuild your project shown below.
 
 ---
 
-## 🛠️ Build and Test the Project
+## Build and Test the Project
 
 Use the Gradle wrapper to build the project. This will compile the code and run tests. 
 You can see the compiled class files in `build/classes` and generated artifacts will be created in `build/libs` 
@@ -74,7 +90,7 @@ To execute only the tests (or run through your IDE directly):
 
 ---
 
-## 🎯 Running the App
+## Running the App
 
 You can also get Gradle to run your app if needed. It will look for a main method in the class defined in the `application->mainClass` property.
 This will also be the class run by the executable JAR created in the next step.
@@ -85,7 +101,7 @@ This will also be the class run by the executable JAR created in the next step.
 
 ---
 
-## 📦 Creating a Shadow/Fat JAR
+## Creating a Shadow/Fat JAR
 
 This template includes the [Shadow plugin](https://gradleup.com/shadow/), which packages all dependencies into a single executable JAR (also
 sometimes known as a fat jar).
@@ -104,7 +120,7 @@ build/libs/your-project-name-all.jar
 
 ---
 
-## 🚀 Running the JAR
+## Running the JAR
 
 Since you now have just a single file with everything bundled in, to deploy or run your app you can just execute the JAR directly:
 
