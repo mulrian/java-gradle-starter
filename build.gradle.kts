@@ -1,7 +1,7 @@
 plugins {
     application
     id("java")
-    id("com.gradleup.shadow") version "8.3.6"
+    id("com.gradleup.shadow") version "9.2.2"
 }
 
 group = "com.example.myapp"
@@ -12,8 +12,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.11.4"))
+    implementation("com.github.lalyos:jfiglet:0.0.9")
+    testImplementation(platform("org.junit:junit-bom:6.0.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
@@ -22,7 +24,7 @@ tasks.test {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
